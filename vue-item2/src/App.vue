@@ -4,6 +4,7 @@
     <h1>{{msg}}</h1>
     <input v-model="msg">
     <HeaderComponent></HeaderComponent>
+    <ContentComponent></ContentComponent>
     <FooterComponent></FooterComponent>
   </div>
 </template>
@@ -11,6 +12,7 @@
 <script>
 import HeaderComponent from './component/header.vue'
 import FooterComponent from './component/footer.vue'
+import ContentComponent from './component/content.vue'
 export default {
   name: 'app',
   data () {
@@ -20,12 +22,13 @@ export default {
   },
   components:{
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      ContentComponent
   }
 }
 </script>
 
-<style>
+<style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
