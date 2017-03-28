@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+i,
+em {
+  font-style: normal;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+label,
+i,
+select,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+.scrollbar-style::-webkit-scrollbar {
+  width: .05rem;
+}
+.scrollbar-style::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0.06rem rgba(0, 0, 0, 0.3);
+  border-radius: .1rem;
+  background-color: #F5F5F5;
+}
+.scrollbar-style::-webkit-scrollbar-thumb {
+  border-radius: .1rem;
+  -webkit-box-shadow: inset 0 0 0.06rem rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+.focus {
+  border: .005rem solid #0a7a89;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.hide {
+  display: none;
+}
+show{
+  display: block;
+}
+
