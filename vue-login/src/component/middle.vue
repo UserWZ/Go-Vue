@@ -24,12 +24,10 @@
     list-style: none;
   }
   .middle-box {
-    position: relative;
+    position: absolute;
     top: 50%;
-    -webkit-transform:translateY(-50%) ;
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
+    margin-top: -290px;
+    width: 90%;
+    height: 580px;
   }
 </style>
