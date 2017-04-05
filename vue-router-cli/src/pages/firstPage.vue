@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <el-upload
       class="upload-demo"
@@ -18,6 +19,18 @@
     </div>
   </div>
 
+=======
+  <el-upload
+    class="upload-demo"
+    action="https://jsonplaceholder.typicode.com/posts/"
+    :on-preview="handlePreview"
+    :on-remove="handleRemove"
+    :file-list="fileList2"
+    list-type="picture">
+    <el-button size="small" type="primary" ref="btn" style="display:block;">点击上传</el-button>
+    <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+  </el-upload>
+>>>>>>> de6bf7d93628014c17839eef2086734019efd68a
 </template>
   <script>
     export default {
@@ -29,8 +42,13 @@
               ]
         };
       },
+<<<<<<< HEAD
       mounted (){
         console.log(this.$root)
+=======
+      mounted() {
+        console.log(this.$refs.btn.style.cssText)
+>>>>>>> de6bf7d93628014c17839eef2086734019efd68a
       },
       methods: {
         handleRemove(file, fileList) {
