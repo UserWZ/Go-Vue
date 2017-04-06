@@ -5,10 +5,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import VueResource from 'vue-resource'
 
+
 Vue.use(ElementUI)
 Vue.use(VueResource)
 Vue.config.productionTip = false
-
+Vue.config.devtools = true
 new Vue({
   el: '#app',
   router,

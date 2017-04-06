@@ -35,6 +35,7 @@
 </style>
 <template>
   <div id="app">
+    <my-article :logo="logoMsg"></my-article>
     <img src="./assets/logo.png" v-on:click="get()">
     <div class="nav-list animated bounceInLeft" ref="one">
       <router-link class="nav-item" to="/" exact v-show="true">首页</router-link>
@@ -49,12 +50,14 @@
 </template>
 <script>
 import Vue from 'vue'
+import myArticle from './component/myArticle.vue'
 export default {
   name: 'app',
   data () {
     return {
       a:1,
-      msg:''
+      msg:'',
+      logoMsg:'this msg from parent'
     }
   },
   mounted (){
@@ -68,6 +71,9 @@ export default {
               alert('false')
           });
         }
+  },
+  components:{
+    myArticle
   }
 }
 //新组件
