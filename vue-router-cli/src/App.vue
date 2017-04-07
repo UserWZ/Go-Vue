@@ -57,7 +57,7 @@ export default {
     return {
       a:1,
       msg:'',
-      logoMsg:'this msg from parent'
+      logoMsg:'sublime fans!'
     }
   },
   mounted (){
