@@ -32,7 +32,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  overflow: hidden;
+  overflow: auto;
 }
 
 h1, h2 {

@@ -94,6 +94,7 @@ import PieContent from '../../components/Echart/pie.vue'
 		height: 50px;
 		padding: 0 50px;
 		line-height: 50px;
+		box-sizing: border-box;
 	}
 	.el-breadcrumb{
 		width: auto;
@@ -112,5 +113,6 @@ import PieContent from '../../components/Echart/pie.vue'
 		height: auto;
 		margin: 30px 0 30px;
 		overflow: hidden;
+		box-sizing: border-box;
 	}
 </style>

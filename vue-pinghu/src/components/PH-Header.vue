@@ -7,31 +7,31 @@
 			<li class="layui-nav-item ph-title">
 				<a href="">平湖人案智能系统</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">首页</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">案件管理</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">相似度分析页面</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">关系分析</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">可视化深度分析</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">统计分析</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">预警</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">文本案件结构化</a>
 			</li>
-			<li class="layui-nav-item">
+			<li class="layui-nav-item link-page-title">
 				<a href="">系统管理</a>
 			</li>
 			<li class="layui-nav-item">
@@ -74,4 +74,7 @@
 	.ph-header .layui-nav .ph-user a{
 		padding-left: 0!important;
 	}	
+	.ph-header .layui-nav .link-page-title:hover{
+		background-color: #16979E;
+	}
 </style>
