@@ -42,11 +42,19 @@
 					<td>{{item.AJSM}}</td>
 					<td>{{item.AJZB}}</td>
 					<td>
-						<button class="layui-btn">详情</button>
+						<button class="layui-btn" @click="showDetails($event)">详情</button>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		<div class="dialog" v-if="willShow">
+			<div class="dialog-content">
+				<i class="layui-icon closeDialog" @click="closeDialog">&#x1006;</i>
+				<ul>
+					<li v-for="(todo,index) in todos">{{todo}}</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </template>
 <script>
@@ -58,12 +66,31 @@ import PieContent from '../../components/Echart/pie.vue'
 		name: '',
 		data () {
 			return {
-				items: ''
+				items: '',
+				todos: [],
+				willShow: false
 			}
 		},
 		components: {
 			BarContent,
 			PieContent,
+		},
+		methods:{
+			showDetails:function($event){
+				//定义全局this
+				var _this = this;
+				//清空todos
+				_this.todos = [];
+				var currentTd = $(event.target).parent().siblings();
+				$.each(currentTd,function(key,val){
+					_this.todos.push($(val).text())
+				})
+				//console.log(this.todos)
+				_this.willShow = true;
+			},
+			closeDialog:function(){
+				this.willShow = false;
+			}
 		},
 		mounted: function(){
 			this.$nextTick(function(){
@@ -88,6 +115,11 @@ import PieContent from '../../components/Echart/pie.vue'
 	}
 	.rf{
 		float: right;
+	}
+	.ZASDPage{
+		position: relative;
+		width: 100%;
+		height: 100%;
 	}
 	.content-nav{
 		width: 100%;
@@ -114,5 +146,35 @@ import PieContent from '../../components/Echart/pie.vue'
 		margin: 30px 0 30px;
 		overflow: hidden;
 		box-sizing: border-box;
+	}
+	/* ========================
+	弹出框
+	=========================== */
+	.dialog{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,.5);
+	}
+	.dialog .dialog-content{
+		width: 50%;
+		height: 100%;
+		margin: 0 auto;
+		padding-top: 50px;
+		box-sizing: border-box;
+		cursor: pointer;
+	}
+	.dialog .dialog-content .closeDialog{
+		font-size: 22px;
+		color: #fff;
+		background: #40C5CC;
+	}
+	.dialog .dialog-content li{
+		display: block;
+		margin-top: 30px;
+		font-size: 20px;
+		color: #fff;
 	}
 </style>
