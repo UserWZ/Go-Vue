@@ -8,7 +8,7 @@
 				<a href="">平湖人案智能系统</a>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">首页</a>
+				<router-link to="/">首页</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
 				<a href="">案件管理</a>
@@ -23,7 +23,7 @@
 				<a href="">可视化深度分析</a>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">统计分析</a>
+				<router-link to="/ZASD">统计分析</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
 				<a href="">预警</a>
