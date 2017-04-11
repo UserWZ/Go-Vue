@@ -98,9 +98,9 @@ import PieContent from '../../components/Echart/pie.vue'
 				var  _this = this;
 				Axios.get("../../../src/data/AJSD.json")
 					.then(function(res){
-						console.log(res.data)
+						//console.log(res.data)
 						_this.items = res.data;
-						console.log(_this.items)
+						//console.log(_this.items)
 					})
 					.catch(function(err){
 						alert(arr)

@@ -1,50 +1,6 @@
 <template>
   <div id="app">
     <phHeader></phHeader>
-    <!-- <ZASD-Page></ZASD-Page>  --> 
-    <!-- <div id="ph-header" class="ph-header">
-      <ul class="layui-nav">
-        <li class="layui-nav-item">
-          <img src="./assets/images/logo.jpg" height="69" width="67" alt="">
-        </li>
-        <li class="layui-nav-item ph-title">
-          <a href="">平湖人案智能系统</a>
-        </li>
-        <li class="layui-nav-item link-page-title">
-          <router-link to="/">首页</router-link>
-        </li>
-        <li class="layui-nav-item link-page-title">
-          <a href="">案件管理</a>
-        </li>
-        <li class="layui-nav-item link-page-title">
-          <a href="">相似度分析页面</a>
-        </li> 
-        <li class="layui-nav-item link-page-title">
-          <a href="">关系分析</a>
-        </li>
-        <li class="layui-nav-item link-page-title">
-          <a href="">可视化深度分析</a>
-        </li>
-        <li class="layui-nav-item link-page-title">
-          <router-link to="/ZASD">统计分析</router-link>
-        </li>
-        <li class="layui-nav-item link-page-title">
-          <a href="">预警</a>
-        </li>
-        <li class="layui-nav-item link-page-title">
-          <a href="">文本案件结构化</a>
-        </li>
-        <li class="layui-nav-item link-page-title">
-          <a href="">系统管理</a>
-        </li>
-        <li class="layui-nav-item">
-          <img src="./assets/images/system-person.gif" height="29" width="26" alt="">
-        </li>
-        <li class="layui-nav-item ph-user">
-          <a href="">用户名</a>
-        </li>
-      </ul>
-    </div> -->
     <div>
       <router-view></router-view>
     </div>

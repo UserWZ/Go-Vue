@@ -1,0 +1,18 @@
+<template>
+	<div id="YJPage" class="YJPage">
+		<p>hello YJPage</p>
+	</div>
+</template>
+<script>
+	export default {
+		name:'',
+		data () {
+			return {
+
+			}
+		}
+	}
+</script>
+<style scoped>
+	
+</style>
