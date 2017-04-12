@@ -31,7 +31,7 @@
 				</thead>
 				<tbody>
 					<tr v-for="item in items">
-						<td>{{item.AJLX}}</td>
+						<td>{{item.AJBH}}</td>
 						<td>{{item.AJMC}}</td>
 						<td>{{item.AJLX}}</td>
 						<td>{{item.AJDD}}</td>

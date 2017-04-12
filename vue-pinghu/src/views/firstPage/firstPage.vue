@@ -1,7 +1,7 @@
 <template>
 	<div id="firstPage" class="firstPage">
 		<div class="layui-input-block">
-			<input name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" type="text">
+			<input name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" type="text" v-model.trim="name">
 		</div>
 		<!-- 个人工作台 -->
 		<div class="person-work-space">
@@ -29,20 +29,21 @@
 		name: '',
 		data () {
 			return {
+				name: '',
 				items: [
 					{"name":"案件管理"},
+					{"name":"系统管理"},
+					{"name":"人案管理"},
+					{"name":"车辆管理"},
+					{"name":"各种管理"},
+					{"name":"全是管理"},
 					{"name":"案件管理"},
 					{"name":"案件管理"},
 					{"name":"案件管理"},
 					{"name":"案件管理"},
 					{"name":"案件管理"},
 					{"name":"案件管理"},
-					{"name":"案件管理"},
-					{"name":"案件管理"},
-					{"name":"案件管理"},
-					{"name":"案件管理"},
-					{"name":"案件管理"},
-				]	
+				]
 			}
 		},
 		methods: {
@@ -51,9 +52,14 @@
 				$(event.currentTarget).parent().css('display','none');
 			},
 			addNewList:function(){
-				this.items.push({
-					"name":"案件新增"
-				})
+				if (this.name === '') {
+					return; 
+				}else{
+					this.items.push({
+						"name": this.name
+					})
+					this.name = '';
+				}
 			},
 			showlayerOpen:function(){
 				layer.alert('这是在设置界面', {icon: 6});

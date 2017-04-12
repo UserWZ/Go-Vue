@@ -4,12 +4,12 @@
     <div>
       <router-view></router-view>
     </div>
+    <phFooter></phFooter>
   </div>
 </template>
-
 <script>
 import phHeader from './components/PH-Header.vue'
-/*import ZASDPage from './views/ZASD/ZASD.vue'*/
+import phFooter from './components/PH-Footer.vue'
 export default {
   name: 'app',
   data () {
@@ -19,13 +19,14 @@ export default {
   },
   components:{
     phHeader,
-    /*ZASDPage*/
+    phFooter
   }
 }
 </script>
 
 <style>
 #app {
+  position: relative;
   width: 100%;
   height: 100%;
   min-width: 1520px;
