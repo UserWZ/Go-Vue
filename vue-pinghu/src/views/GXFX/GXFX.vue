@@ -3,7 +3,7 @@
 		<div class="layui-form-item">
 		    <label class="layui-form-label">搜索结果</label>
 		    <div class="layui-input-block">
-		      <input name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input" type="text">
+		      <input name="title" lay-verify="title" autocomplete="off" :placeholder="placeholder" class="layui-input" type="text" @input="updateTable" v-model="value">
 		    </div>
 		</div>
 		<div class="search-list">
@@ -51,12 +51,14 @@
 	</div>
 </template>
 <script>
-import Vue from 'vue'
+//import Vue from 'vue'
 import Axios from 'axios'
 	export default {
 		name:'',
 		data () {
 			return {
+				placeholder: '请选择列表项',
+				value: '',
 				searchLists:["人名","案件编号","账号信息","车辆","案件信息"],
 				items:''
 			}
@@ -64,6 +66,41 @@ import Axios from 'axios'
 		methods:{
 			searchListClick:function($event){
 				$(event.target).addClass('active').siblings().removeClass('active');
+				var newPlaceholder = "请输入" + $(event.target).text()
+				this.placeholder = newPlaceholder;
+			},
+			showDetails:function($event){
+				//console.log(event.target)
+				layer.msg('这是详情！');
+			},
+			updateTable:function(){
+				console.log(this.value)
+				//alert('change')
+				//调用axios
+				this.$nextTick(function(){
+					var _this = this;
+					Axios.get('../../../src/data/GXFX.json')
+						.then(function(res){
+							console.log(res.data,res.data.length)
+							//遍历
+							for(var i=0; i<res.data.length; i++){
+								console.log(res.data[i].AJBH);
+								if(res.data[i].AJBH != _this.value){
+									//删除当前项
+									res.data.splice(i,1);
+									//key 数组的长度在变
+									i--;
+									console.log(res.data)
+								}
+							}
+				
+							_this.items = res.data
+							console.log(_this.items)
+						})
+						.catch(function(err){
+							console.log(err)
+						})
+				})
 			}
 		},
 		mounted:function(){
