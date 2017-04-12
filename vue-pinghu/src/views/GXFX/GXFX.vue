@@ -84,18 +84,25 @@ import Axios from 'axios'
 							console.log(res.data,res.data.length)
 							//遍历
 							for(var i=0; i<res.data.length; i++){
-								console.log(res.data[i].AJBH);
-								if(res.data[i].AJBH != _this.value){
+								//console.log(res.data[i].AJBH);
+								if( res.data[i].AJBH != _this.value &&
+								 	res.data[i].AJMC != _this.value &&
+								  	res.data[i].AJLX != _this.value &&
+								  	res.data[i].AJDD != _this.value &&
+								  	res.data[i].AJSJ != _this.value &&
+								  	res.data[i].name != _this.value &&
+								  	res.data[i].age != _this.value &&
+								  	res.data[i].gender != _this.value &&
+								  	res.data[i].JG != _this.value &&
+								  	res.data[i].phone != _this.value){
 									//删除当前项
 									res.data.splice(i,1);
 									//key 数组的长度在变
 									i--;
-									console.log(res.data)
+									//console.log(res.data)
 								}
-							}
-				
+							}				
 							_this.items = res.data
-							console.log(_this.items)
 						})
 						.catch(function(err){
 							console.log(err)
