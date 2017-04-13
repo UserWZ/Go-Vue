@@ -70,6 +70,7 @@
 	.ph-header .layui-nav .ph-title a{
 		padding-left: 0!important;
 		font-size: 16px!important;
+		cursor: default;
 	}
 	.ph-header .layui-nav .ph-user a{
 		padding-left: 0!important;
