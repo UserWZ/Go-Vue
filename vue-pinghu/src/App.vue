@@ -1,25 +1,30 @@
 <template>
   <div id="app">
-    <phHeader></phHeader>
-    <div>
-      <router-view></router-view>
-    </div>
-    <phFooter></phFooter>
+    <loginPage></loginPage>
+    <div class="web-content" v-if="webShow">
+      <phHeader></phHeader>
+      <div>
+        <router-view></router-view>
+      </div>
+      <phFooter></phFooter>
+    </div>    
   </div>
 </template>
 <script>
 import phHeader from './components/PH-Header.vue'
 import phFooter from './components/PH-Footer.vue'
+import loginPage from './components/login.vue'
 export default {
   name: 'app',
   data () {
     return {
-      
+      webShow: false
     }
   },
   components:{
     phHeader,
-    phFooter
+    phFooter,
+    loginPage
   }
 }
 </script>
@@ -54,6 +59,10 @@ li {
 
 a {
   color: #42b983;
+}
+
+.web-content{
+
 }
 
 .ph-header{

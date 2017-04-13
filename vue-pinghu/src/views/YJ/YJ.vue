@@ -61,15 +61,14 @@ import Axios from 'axios'
 								layer = layui.layer;
 
 							var num = 5;//每一页的数量
-							var render = function(curr){					 
-			                    var last = curr*num-1;//当前页的最后一行数据的下标
+							var render = function(curr){			
+							var last = curr*num-1;//当前页的最后一行数据的下标
 			                        last = last >= res.data.length?(res.data.length-1):last;
 				                    for(var i=(curr*num-num); i<=last; i++){
 				                        // 从未显示的第一行开始
 				                        _this.html[i] = res.data[i];
 				                             
-				                    }		
-				                    console.log(_this.html[0])		                    
+				                    }		                    
 				                    return _this.html;
 							}
 							laypage({
@@ -77,8 +76,7 @@ import Axios from 'axios'
 			                    pages:Math.ceil(res.data.length/num),
 			                    first:false,
 			                    last: false,
-			                    jump:function(obj){	
-			                   		_this.html = [];	                    	
+			                    jump:function(obj){	      	
 			                    	_this.items = '';
 			                    	_this.items = render(obj.curr);
 
