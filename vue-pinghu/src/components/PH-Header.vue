@@ -8,31 +8,31 @@
 				<a href="">平湖人案智能系统</a>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">首页</a>
+				<router-link to="/">首页</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">案件管理</a>
+				<router-link to="/AJGL">案件管理</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">相似度分析页面</a>
+				<router-link to="/XSDFX">相似度分析页面</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">关系分析</a>
+				<router-link to="/GXFX">关系分析</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">可视化深度分析</a>
+				<router-link to="/KSHFX">可视化深度分析</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">统计分析</a>
+				<router-link to="/ZASD">统计分析</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">预警</a>
+				<router-link to="/YJ">预警</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">文本案件结构化</a>
+				<router-link to="/WBAQ">文本案件结构化</router-link>
 			</li>
 			<li class="layui-nav-item link-page-title">
-				<a href="">系统管理</a>
+				<router-link to="/XTGL">系统管理</router-link>
 			</li>
 			<li class="layui-nav-item">
 				<img src="../assets/images/system-person.gif" height="29" width="26" alt="">

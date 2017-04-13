@@ -1,29 +1,37 @@
 <template>
   <div id="app">
-    <phHeader></phHeader>
-    <ZASD-Page></ZASD-Page>  
+    <loginPage></loginPage>
+    <div class="web-content" v-if="webShow">
+      <phHeader></phHeader>
+      <div>
+        <router-view></router-view>
+      </div>
+      <phFooter></phFooter>
+    </div>    
   </div>
 </template>
-
 <script>
 import phHeader from './components/PH-Header.vue'
-import ZASDPage from './views/ZASD/ZASD.vue'
+import phFooter from './components/PH-Footer.vue'
+import loginPage from './components/login.vue'
 export default {
   name: 'app',
   data () {
     return {
-      
+      webShow: false
     }
   },
   components:{
     phHeader,
-    ZASDPage
+    phFooter,
+    loginPage
   }
 }
 </script>
 
 <style>
 #app {
+  position: relative;
   width: 100%;
   height: 100%;
   min-width: 1520px;
@@ -52,4 +60,32 @@ li {
 a {
   color: #42b983;
 }
+
+.web-content{
+
+}
+
+.ph-header{
+    width: 100%;
+    height: 70px;
+  }
+  .ph-header .layui-nav{
+    background-color: #40C5CC;
+  }
+  .ph-header .layui-nav a{
+    color: #fff;
+  }
+  .ph-header .layui-nav .ph-title,.ph-header .layui-nav .ph-user{
+    margin-left: 0!important;
+  }
+  .ph-header .layui-nav .ph-title a{
+    padding-left: 0!important;
+    font-size: 16px!important;
+  }
+  .ph-header .layui-nav .ph-user a{
+    padding-left: 0!important;
+  } 
+  .ph-header .layui-nav .link-page-title:hover{
+    background-color: #16979E;
+  }
 </style>

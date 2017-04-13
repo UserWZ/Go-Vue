@@ -43,9 +43,18 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      // 如果使用NPM安装的jQuery
+      'jquery': 'jquery' 
     }
   },
+   // 增加一个plugins
+  plugins: [
+      new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery"
+      })
+   ],
   devServer: {
     historyApiFallback: true,
     noInfo: true
