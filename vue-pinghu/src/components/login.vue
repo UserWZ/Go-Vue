@@ -4,12 +4,12 @@
 		<h1>登录</h1>
 		<el-form>
 			<el-form-item label="user">
-				<el-input type="text" id="user" v-model="formName.user" @blur="inputBlur(formName.user)"></el-input>
-				<p v-model="formName.userError"></p>
+				<el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
+				<p>{{formName.userError}}</p>
 			</el-form-item>
 			<el-form-item label="password">
-				<el-input type="password" id="password" v-model="formName.password" @blur="inputBlur(formName.password)"></el-input>
-				<p v-model="formName.passwordError"></p>
+				<el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>
+				<p>{{formName.passwordError}}</p>
 			</el-form-item>
 			<el-button type="primary" @click="submitForm('formName')">提交</el-button>
 			<el-button @click="resetForm">重置</el-button>
@@ -33,14 +33,26 @@
 		methods: {
 			resetForm:function(){
 				this.formName.user = '';
+				this.formName.userError = '';
 				this.formName.password = '';
+				this.formName.passwordError = '';
 			},
 			submitForm:function(formName){
 
 			},
-			inputBlur:function(inputContent){
-				if (inputContent === '') {
-					
+			inputBlur:function(errorItem,inputContent){
+				if (errorItem === 'user') {
+					if (inputContent === '') {
+						this.formName.userError = '用户名不能为空'
+					}else{
+						this.formName.userError = '';
+					}
+				}else if(errorItem === 'password') {
+					if (inputContent === '') {
+						this.formName.passwordError = '密码不能为空'
+					}else{
+						this.formName.passwordError = '';
+					}
 				}
 			}
 		}
@@ -64,13 +76,14 @@
 		margin-top: -150px;
 		margin-left: -175px;
 		width: 350px;
-		height: 300px;
-		padding: 30px 20px 0;
+		min-height: 300px;
+		padding: 30px 20px 20px;
 		border-radius: 8px;
 		box-sizing: border-box;
 		background-color: #fff;
 	}
-	.loginPage el-form{
-
+	.loginPage p{
+		color: red;
+		text-align: left;
 	}
 </style>
