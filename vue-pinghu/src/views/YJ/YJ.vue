@@ -37,6 +37,7 @@
 				</tbody>
 			</table>
 			<div id="demo4"></div>
+			<textarea name="" v-model="items"></textarea> 
 		</div>
 	</div>
 </template>
@@ -46,7 +47,8 @@ import Axios from 'axios'
 		name:'',
 		data () {
 			return {
-				items:''
+				items:'',
+				html: []
 			}
 		},
 		mounted:function(){
@@ -54,32 +56,43 @@ import Axios from 'axios'
 				var _this = this;
 				Axios.get('../../../src/data/GXFX.json')
 					.then(function(res){
-						//console.log(res.data)
-						_this.items = res.data
-						//console.log(_this.items)
-						laypage({
-						     cont: 'demo4', //容器
-						     //pages: res.TotalPage, //通过后台拿到的总页数
-						     pages: Math.ceil(res.data/pageSize), //通过后台拿到的总页数
-					         curr: curr || 1,
-					         first: 1, //若不显示，设置false即可
-					         last: res.TotalPage, //若不显示，设置false即可
-					         prev: '<', //若不显示，设置false即可
-					         next: '>', //若不显示，设置false即可
-					         skip:true,
-					         groups:4,
-					         skin:'#5BC0DE',
-						     jump: function (obj,first) { //触发分页后的回调
-						       if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
-						         page(obj.curr);
-						       }
-						     }
-						   });
+						layui.use(['laypage','layer'],function(){
+							var laypage = layui.laypage,
+								layer = layui.layer;
+
+							var num = 5;//每一页的数量
+							var render = function(curr){					 
+			                    var last = curr*num-1;//当前页的最后一行数据的下标
+			                        last = last >= res.data.length?(res.data.length-1):last;
+				                    for(var i=(curr*num-num); i<=last; i++){
+				                        // 从未显示的第一行开始
+				                        _this.html[i] = res.data[i];
+				                             
+				                    }		
+				                    console.log(_this.html[0])		                    
+				                    return _this.html;
+							}
+							laypage({
+			                    cont:'demo4',
+			                    pages:Math.ceil(res.data.length/num),
+			                    first:false,
+			                    last: false,
+			                    jump:function(obj){	
+			                   		_this.html = [];	                    	
+			                    	_this.items = '';
+			                    	_this.items = render(obj.curr);
+
+			                    }
+			                });	
+						})
 					})
 					.catch(function(err){
 						console.log(err)
 					})
 			})
+		},
+		methods:{
+			
 		}
 	}
 </script>

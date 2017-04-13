@@ -42,7 +42,7 @@
 					<td>{{item.AJSM}}</td>
 					<td>{{item.AJZB}}</td>
 					<td>
-						<button class="layui-btn" @click="showDetails($event)">详情</button>
+						<button class="layui-btn" @click="showDetails($event,index)">详情</button>
 					</td>
 				</tr>
 			</tbody>
@@ -50,8 +50,12 @@
 		<div class="dialog" v-if="willShow">
 			<div class="dialog-content">
 				<i class="layui-icon closeDialog" @click="closeDialog">&#x1006;</i>
-				<ul>
-					<li v-for="(todo,index) in todos">{{todo}}</li>
+				<ul v-for="(todo,index) in todos">
+					<li>{{todo.AJLX}}</li>
+					<li>{{todo.AJQY}}</li>
+					<li>{{todo.AJSD}}</li>
+					<li>{{todo.AJSM}}</li>
+					<li>{{todo.AJZB}}</li>
 				</ul>
 			</div>
 		</div>
@@ -76,16 +80,19 @@ import PieContent from '../../components/Echart/pie.vue'
 			PieContent,
 		},
 		methods:{
-			showDetails:function($event){
+			showDetails:function($event,index){
 				//定义全局this
 				var _this = this;
 				//清空todos
 				_this.todos = [];
-				var currentTd = $(event.target).parent().siblings();
+				//jquery操作
+				/*var currentTd = $(event.target).parent().siblings();
 				$.each(currentTd,function(key,val){
 					_this.todos.push($(val).text())
-				})
-				//console.log(this.todos)
+				})*/
+				//当前行的数据赋值给todo
+				_this.todos.push(_this.items[index]);
+				console.log(_this.todos)
 				_this.willShow = true;
 			},
 			closeDialog:function(){
