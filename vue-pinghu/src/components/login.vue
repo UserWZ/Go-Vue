@@ -11,7 +11,7 @@
 				<el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>
 				<p>{{formName.passwordError}}</p>
 			</el-form-item>
-			<el-button type="primary" @click="submitForm('formName')">提交</el-button>
+			<el-button type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">提交</el-button>
 			<el-button @click="resetForm">重置</el-button>
 		</el-form>				
 	</div>
@@ -26,7 +26,8 @@
 					user: '',
 					userError: '',
 					password: '',
-					passwordError: ''
+					passwordError: '',
+					beDisabled: true
 				},
 			}
 		},
@@ -53,6 +54,12 @@
 					}else{
 						this.formName.passwordError = '';
 					}
+				}
+				//对于按钮的状态进行修改
+				if (this.formName.user != '' && this.formName.password != '') {
+					this.formName.beDisabled = false;
+				}else{
+					this.formName.beDisabled = true;
 				}
 			}
 		}
