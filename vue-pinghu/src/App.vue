@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <loginPage></loginPage>
+    <loginPage v-on:showState="changeState" v-if="loginShow" :fromParent="fromParent"></loginPage>
     <div class="web-content" v-if="webShow">
-      <phHeader></phHeader>
+      <phHeader :headerUserName="headerUserName"></phHeader>
       <div>
         <router-view></router-view>
       </div>
@@ -18,13 +18,27 @@ export default {
   name: 'app',
   data () {
     return {
-      webShow: false
+      loginShow: true,
+      webShow: false,
+      fromParent:'——来自父组件',
+      headerUserName: '用户名'
     }
   },
   components:{
     phHeader,
     phFooter,
     loginPage
+  },
+  methods:{
+    changeState:function(data){
+      //console.log(data)
+      if(data[0] === false){
+        console.log('执行')
+        this.webShow = true;//显示web应用内容
+        this.loginShow = false;//隐藏login组件
+        this.headerUserName = data[1];//赋值headerUserName
+      }
+    }
   }
 }
 </script>

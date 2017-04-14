@@ -38,7 +38,7 @@
 				<img src="../assets/images/system-person.gif" height="29" width="26" alt="">
 			</li>
 			<li class="layui-nav-item ph-user">
-				<a href="">用户名</a>
+				<a href="">{{headerUserName}}</a>
 			</li>
 		</ul>
 	</div>
@@ -50,7 +50,10 @@
 			return {
 
 			}
-		}
+		},
+		props:[
+			'headerUserName'
+		]
 	}
 </script>
 <style scoped>
@@ -74,6 +77,8 @@
 	}
 	.ph-header .layui-nav .ph-user a{
 		padding-left: 0!important;
+		font-size: 18px;
+		color: #F05133;
 	}	
 	.ph-header .layui-nav .link-page-title:hover{
 		background-color: #16979E;

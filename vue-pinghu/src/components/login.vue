@@ -1,7 +1,7 @@
 <template>
 <div class="dialog">
 	<div class="loginPage">
-		<h1>登录</h1>
+		<h1>登录{{fromParent}}</h1>
 		<el-form>
 			<el-form-item label="user">
 				<el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
@@ -18,6 +18,7 @@
 </div>
 </template>
 <script>
+import Axios from 'axios'
 	export default {
 		name: '',
 		data () {
@@ -29,8 +30,12 @@
 					passwordError: '',
 					beDisabled: true
 				},
-			}
+				beShow: false
+			}			
 		},
+		props:[
+				'fromParent'
+		],
 		methods: {
 			resetForm:function(){
 				this.formName.user = '';
@@ -39,7 +44,19 @@
 				this.formName.passwordError = '';
 			},
 			submitForm:function(formName){
+				this.$emit('showState', [this.beShow,this.formName.user])
+				//提交user password
+				var user = this.formName.user,
+					password = this.formName.password;
+					console.log(user,password)
+				Axios.get('../../src/php/login.php?user='+user+'&password='+password)
+					 .then(function(res){
+					 	console.log(res)
+					 	
+					 })
+					 .catch(function(){
 
+					 })
 			},
 			inputBlur:function(errorItem,inputContent){
 				if (errorItem === 'user') {
