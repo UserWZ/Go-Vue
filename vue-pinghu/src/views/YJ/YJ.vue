@@ -37,7 +37,6 @@
 				</tbody>
 			</table>
 			<div id="demo4"></div>
-			<textarea name="" v-model="items"></textarea> 
 		</div>
 	</div>
 </template>
