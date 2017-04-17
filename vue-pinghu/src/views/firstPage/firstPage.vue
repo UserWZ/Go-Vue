@@ -85,7 +85,8 @@
 	============================== */
 	.firstPage .person-work-space{
 		margin: 0 auto;
-		margin-top: 100px;
+		margin-top: 50px;
+		margin-bottom: 50px;
 		padding: 0 50px;
 		width: 900px;
 		height: 450px;

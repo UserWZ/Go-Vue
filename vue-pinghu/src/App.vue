@@ -3,7 +3,7 @@
     <loginPage v-on:showState="changeState" v-if="loginShow" :fromParent="fromParent"></loginPage>
     <div class="web-content" v-if="webShow">
       <phHeader :headerUserName="headerUserName"></phHeader>
-      <div>
+      <div class="ph-content">
         <router-view></router-view>
       </div>
       <phFooter></phFooter>
@@ -76,9 +76,13 @@ a {
 }
 
 .web-content{
-
+  width: 100%;
+  height: 100%;
 }
-
+.ph-content{
+  width: 100%;
+  height: 85%;
+}
 .ph-header{
     width: 100%;
     height: 70px;
