@@ -23,14 +23,14 @@ import Axios from 'axios'
 		name: '',
 		data () {
 			return {
-				formName: {
+				formName: {//表单中的参数
 					user: '',
 					userError: '',
 					password: '',
 					passwordError: '',
 					beDisabled: true
 				},
-				beShow: false
+				loginShow: false//传值给父组件
 			}			
 		},
 		props:[
@@ -44,7 +44,8 @@ import Axios from 'axios'
 				this.formName.passwordError = '';
 			},
 			submitForm:function(formName){
-				this.$emit('showState', [this.beShow,this.formName.user])
+				//与父组件通信传值
+				this.$emit('showState', [this.loginShow,this.formName.user])
 				//提交user password
 				var user = this.formName.user,
 					password = this.formName.password;

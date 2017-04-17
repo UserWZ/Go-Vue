@@ -31,7 +31,7 @@ export default {
   },
   methods:{
     changeState:function(data){
-      //console.log(data)
+      console.log(data)
       if(data[0] === false){
         console.log('执行')
         this.webShow = true;//显示web应用内容
