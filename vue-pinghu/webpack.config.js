@@ -15,7 +15,7 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-          }
+          },
           // other vue-loader options go here
         }
       },
@@ -57,7 +57,7 @@ module.exports = {
    ],
   devServer: {
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
   },
   performance: {
     hints: false

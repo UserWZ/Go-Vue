@@ -44,19 +44,23 @@ import Axios from 'axios'
 				this.formName.passwordError = '';
 			},
 			submitForm:function(formName){
-				//与父组件通信传值
-				this.$emit('showState', [this.loginShow,this.formName.user])
+				var _this = this;
 				//提交user password
 				var user = this.formName.user,
 					password = this.formName.password;
 					console.log(user,password)
-				Axios.get('../../src/php/login.php?user='+user+'&password='+password)
-					 .then(function(res){
+				Axios.get('../../src/php/login1.php',{
+						user: user,
+						password: password
+					}).then(function(res){
 					 	console.log(res)
-					 	
+					 	if (res.data == 'cunzai') {
+					 		//与父组件通信传值
+							_this.$emit('showState', [this.loginShow,this.formName.user])
+					 	}
 					 })
-					 .catch(function(){
-
+					 .catch(function(err){
+					 	console.log(err);
 					 })
 			},
 			inputBlur:function(errorItem,inputContent){
