@@ -46,6 +46,8 @@ import Axios from 'axios'
 			submitForm:function(formName){
 				var _this = this;
 				//提交user password
+				//与父组件通信传值
+				_this.$emit('showState', [this.loginShow,this.formName.user])
 				var user = this.formName.user,
 					password = this.formName.password;
 					console.log(user,password)

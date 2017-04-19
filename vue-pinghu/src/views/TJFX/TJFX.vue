@@ -1,6 +1,7 @@
 <template>
 	<div id="TJFXPage" class="TJFXPage">
 		<p>hello TJFXPage</p>
+		
 	</div>
 </template>
 <script>
@@ -8,7 +9,7 @@
 		name:'',
 		data () {
 			return {
-
+				
 			}
 		}
 	}
